@@ -41,8 +41,9 @@ jobs:
    
     - name: Compress different version files
       run: |
-         declare -A versions
          files=(*-[0-9]*.*.tar)  # 修改匹配模式
+         declare -a base_names
+         declare -a versions
 
          for file in "${files[@]}"; do
          base_name=$(echo "$file" | sed -E 's/(-[0-9]+\.[0-9]+\.tar)//')
